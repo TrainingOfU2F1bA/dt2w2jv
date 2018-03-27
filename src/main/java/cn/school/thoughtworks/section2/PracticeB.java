@@ -30,7 +30,7 @@ public class PracticeB {
             if (!map.containsKey(key)) {
                 map.put(key,x.getValue());
             }else {
-                map.put(key,map.get(key)+1);
+                map.put(key,map.get(key)+x.getValue());
             }
         };
     }
