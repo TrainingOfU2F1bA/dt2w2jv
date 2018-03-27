@@ -21,7 +21,6 @@ public class PracticeATest {
         //选出1集合中与2集合中相同的元素
         List<String> collection1 = Arrays.asList("a", "e", "h", "t", "f", "c", "g", "b", "d");
         List<String> collection2 = Arrays.asList("a", "d", "e", "f");
-
         List<String> result = practiceA.collectSameElements(collection1, collection2);
         String[] expectedResult = new String[]{"a", "e", "f", "d"};
         assertArrayEquals(result.toArray(), expectedResult);
