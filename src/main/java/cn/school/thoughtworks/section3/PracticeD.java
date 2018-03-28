@@ -41,12 +41,9 @@ public class PracticeD {
         };
     }
 
-    Map<String, Integer> createUpdatedCollection(Map<String, Integer> collectionA, Map<String, List<String>> object) {
+    Map<String,Integer> createUpdatedCollection(Map<String, Integer> collectionA, Map<String, List<String>> object) {
         object.values().stream().flatMap(x -> x.stream()).forEach(x -> {
-            if (collectionA.containsKey(x)) {
-                Integer integer = collectionA.get(x);
-                collectionA.put(x, integer < 3 ? integer : integer - integer / 3);
-            }
+                collectionA.computeIfPresent(x,(k,v)->v<3?v:v-v/3);
         });
         return collectionA;
     }

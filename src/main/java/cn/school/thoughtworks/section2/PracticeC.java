@@ -51,11 +51,8 @@ public class PracticeC {
     private Consumer<Map.Entry<String, Integer>> countThenPut(HashMap<String, Integer> map) {
         return x -> {
             String key = x.getKey();
-            if (!map.containsKey(key)) {
-                map.put(key, x.getValue());
-            } else {
-                map.put(key, map.get(key) + x.getValue());
-            }
+            Integer value = x.getValue();
+            map.compute(key,(k,v)->v==null?value:v+value);
         };
     }
 }
