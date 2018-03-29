@@ -3,6 +3,7 @@ package cn.school.thoughtworks.section3;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.stream.Collectors;
 
 public class PracticeC {
     Map<String, Integer> createUpdatedCollection(List<String> collectionA, Map<String, List<String>> object) {
@@ -12,12 +13,11 @@ public class PracticeC {
     }
 
     Map<String, Integer> countSameElements(List<String> collection1) {
-        HashMap<String, Integer> map = new HashMap<>();
-        collection1.stream().forEach(x -> {
-            if (!map.containsKey(x)) map.put(x, 1);
-            else map.put(x, map.get(x) + 1);
-        });
-        return map;
+        return collection1.stream().collect(Collectors.toMap(
+                x->x,
+                x->1,
+                (ov,nv)->ov+1
+        ));
     }
 
     Map<String,Integer> createUpdatedCollection(Map<String, Integer> collectionA, Map<String, List<String>> object) {
